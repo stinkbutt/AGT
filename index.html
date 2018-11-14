@@ -7,11 +7,8 @@
 <script src="./bin/agtransit.js"></script>
 <body>
 
-<button onclick="openFullscreen();">Open Fullscreen</button>
-<button onclick="closeFullscreen();">Close Fullscreen</button>
-
 <p id="demo"></p>
-<div id='top'>
+<div id='top' onclick='openFullscreen();'>
 	<img id="top" src="img/top.png" alt="Top">
 	<h1 id='line1'></h1>
 	<h1 id='line2'></h1>
@@ -19,7 +16,7 @@
 
 <table style="width:100%">
   <tr>
-    <th><p class="left_just">Back</p></th>
+    <th><p class="left_just" onclick="closeFullscreen();">Back</p></th>
     <th><p id='line3'></p></th> 
   </tr>
 
@@ -28,30 +25,7 @@
 
 
 <script> 
-	var elem = document.documentElement;
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-  }
-}
 
-function closeFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.mozCancelFullScreen) {
-    document.mozCancelFullScreen();
-  } else if (document.webkitExitFullscreen) {
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) {
-    document.msExitFullscreen();
-  }
-}
 	startIt();
 </script>
 
