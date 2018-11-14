@@ -1,0 +1,40 @@
+div {
+	width: 750px;
+	height: 1334px;
+    background-color: white;
+}
+
+h1 {
+    font-family: Arial;
+    font-size: 40px;
+    color: black;
+    text-align: center;
+}
+p {
+    font-family: Arial;
+    font-size: 28px;
+    color: black;
+    text-align: left;
+    padding-left: 30px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.0;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0.0;
+  }
+}
+.blink_me {
+  animation: blink 1s step-start 0s infinite;
+  -webkit-animation: blink 1s step-start 0s infinite;
+}
+
+.left_just {
+  color: blue;
+  font-size: 30px;
+  text-align: left;
+}
