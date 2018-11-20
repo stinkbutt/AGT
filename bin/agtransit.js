@@ -1,8 +1,7 @@
 var date = new Date();
 //var n = date.toDateString();
-var start = date.getTime();
-//var duration = 9900000; // 2:45 hours in ms
-var duration = -1; // 2:45 hours in ms
+var start = date.getTime(); 
+var duration = -1; // time until ticket will expire
 
 var line1string = "line1";
 var line2string = "line2";
@@ -13,6 +12,8 @@ var color = getQueryVariable("color");
 var mode = getQueryVariable("mode");
 var orig = getQueryVariable("orig");
 var dest = getQueryVariable("dest");
+var title = orig.toUpperCase() + "<br>to<br>" + dest.toUpperCase();
+var x = document.getElementById("top");
 
 if (mode == "train"){
   duration = 9900000; // 2:45 hours for train
@@ -34,6 +35,10 @@ function openFullscreen() {
   } else if (elem.msRequestFullscreen) { /* IE/Edge */
     elem.msRequestFullscreen();
   }
+}
+
+function setColorbox(obj, col) {
+  this.style.backgroundImage = "linear-gradient(" + col + ", white, white," + col + ")";
 }
 
 function closeFullscreen() {
@@ -58,17 +63,6 @@ function getQueryVariable(variable) {
         }
     }
     console.log('Query variable %s not found', variable);
-}
-
-function getURIargument(args) {
-  var parsedUrl = new URL(window.location.href);
-  var args = parsedUrl.search.split("?" + args + "=");
-  //console.log(parsedUrl.search.split("?color="));
-  if (args[1] == undefined){
-    return "undefined";
-  } else {
-      return args[1];
-  }
 }
 
 function displayTime(){
@@ -192,27 +186,25 @@ function msToTime(s) {
 
   return days + ':' + hrs + ':' + mins + ':' + secs 
 
-  // return days + ':' + hrs + ':' + mins + ':' + secs < 10 ? "0" + secs : secs;
 }
 
-function startIt() {
+function generateTicket() {
     console.log("img/top_" + color + ".png" + " " + "img/bar_" + color + ".png");
-    setInterval(myFunction, 1000);
+    var x = document.getElementById("top");
+    setColorbox(x, color);
+    setInterval(updateDisplay, 1000);
 }
 
-function myFunction(){
-	  line1string =  displayTime(); 
-    line2string = day + ", " + month + " " + date.getDate() + ", " + date.getFullYear();
+function updateDisplay(){
+	var line1string =  displayTime(); 
+  var line2string = day + ", " + month + " " + date.getDate() + ", " + date.getFullYear();
 	  //line3string = "Expires in " + timeLeft;
-  document.getElementById("top").src = "img/top_" + color + ".png";
+  //document.getElementById("top").src = "img/top_" + color + ".png";
+  document.getElementById("title").innerHTML = title;
   document.getElementById("bar").src = "img/bar_" + color + ".png";
- 
-	document.getElementById("line1").innerHTML = line1string;
+
+  document.getElementById("line1").innerHTML = line1string;
 	document.getElementById("line2").innerHTML = line2string;
   document.getElementById("line3").innerHTML = line3string;
 
 }
-
-
-
-
