@@ -3,35 +3,35 @@
 <head>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <script src="./bin/agtransit.js"></script>
 <body>
 
 <div>
-	<img src="img/top.png" alt="Top" onclick='openFullscreen();'>
-  <a href="qr.html">
-    <img src="img/qr.png" alt="QR">
-  </a>
+<form action="ticket.html">
+  <select name="mode">
+    <option value="bus">Bus</option>
+    <option value="train">Train</option>
+  </select>
+
+   <select name="orig">
+    <option value="Hoboken">Hoboken</option>
+    <option value="Towaco">Towaco</option>
+  </select>
+
+   <select name="dest">
+    <option value="Hoboken">Hoboken</option>
+    <option value="Towaco">Towaco</option>
+  </select>
+
+  <select name="color">
+    <option value="green">Green</option>
+    <option value="gray">Gray</option>
+    <option value="purple">Purple</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
 </div>
-
-<div class="bottom">
-	<h1 id='line1'></h1>
-	<h1 id='line2'></h1>
-	<img class="blink_me" id="bar" src="img/baron.png" alt="Bar On">
-
-<table style="width:100%">
-  <tr>
-    <th><p class="left_just" onclick="closeFullscreen();">Back</p></th>
-    <th><p id='line3'></p></th> 
-  </tr>
-
-</div>
-
-
-<script> 
-
-	startIt();
-</script>
 
 </body>
 </html>

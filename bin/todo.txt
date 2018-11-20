@@ -1,0 +1,5 @@
+To Do
+*********************
+1. parse URI variables properly
+2. error handling of images that don't exist
+3. add clock roll-over
